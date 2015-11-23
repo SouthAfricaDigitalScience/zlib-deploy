@@ -1,5 +1,7 @@
 #!/bin/bash -e
 . /etc/profile.d/modules.sh
+echo $PWD
+cd ${WORKSPACE}/${NAME}-${VERSION}
 
 # Zlib does not have a make check
 make install

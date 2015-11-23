@@ -23,4 +23,4 @@ ls ${WORKSPACE}
 
 cd ${WORKSPACE}/${NAME}-${VERSION}
 ./configure --prefix=${SOFT_DIR}
-make -j 8
+make
