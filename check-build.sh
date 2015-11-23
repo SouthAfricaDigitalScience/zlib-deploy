@@ -1,8 +1,8 @@
 #!/bin/bash -e
 . /etc/profile.d/modules.sh
 
-make check
-make install 
+# Zlib does not have a make check
+make install
 
 # At this point, we should have built OpenMPI
 
