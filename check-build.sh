@@ -1,5 +1,6 @@
 #!/bin/bash -e
 . /etc/profile.d/modules.sh
+module add ci
 echo $PWD
 cd ${WORKSPACE}/${NAME}-${VERSION}
 
