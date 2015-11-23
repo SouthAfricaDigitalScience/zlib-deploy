@@ -12,8 +12,8 @@ mkdir -p ${SRC_DIR}
 echo ${NAME}
 echo ${VERSION}
 #module load gcc/4.8.2
-if [[ -s ${SRC_DIR}/${SOURCE_FILE} ]]
-then
+if [[ ! -s ${SRC_DIR}/${SOURCE_FILE} ]] ; then
+  echo "Seems the file is not available locally, downloading"
   mkdir -p ${SRC_DIR}
 	wget http://zlib.net/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
 fi
