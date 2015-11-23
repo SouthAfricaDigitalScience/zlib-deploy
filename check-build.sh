@@ -10,7 +10,7 @@ make install
 
 ls -lht ${SOFT_DIR}
 
-mkdir -vp ${REPO_DIR}
+mkdir -p ${REPO_DIR}
 rm -rf ${REPO_DIR}/*
 tar -cvzf ${REPO_DIR}/build.tar.gz -C ${WORKSPACE}/build apprepo
 mkdir -p modules
