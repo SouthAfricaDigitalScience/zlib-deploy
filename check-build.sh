@@ -7,12 +7,9 @@ cd ${WORKSPACE}/${NAME}-${VERSION}
 # Zlib does not have a make check
 make install
 
-# At this point, we should have built OpenMPI
+# At this point, we should have built zlib
 
 ls -lht ${SOFT_DIR}
-
-mkdir -p ${REPO_DIR}
-rm -rf ${REPO_DIR}/*
 
 mkdir -p modules
 (
@@ -24,12 +21,9 @@ proc ModulesHelp { } {
     puts stderr "       This module does nothing but alert the user"
     puts stderr "       that the [module-info name] module is not available"
 }
-module-whatis   "$NAME $VERSION."
+module-whatis   "$NAME $VERSION. See https://gitub.com/SouthAfricaDigitalScience/zlib-deploy"
 setenv       ZLIB_VERSION       $VERSION
-#
-#
-#
-setenv       ZLIB_DIR           /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       ZLIB_DIR           $::env(SOFT_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path LD_LIBRARY_PATH   $::env(ZLIB_DIR)/lib
 MODULE_FILE
 ) > modules/${VERSION}

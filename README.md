@@ -1,3 +1,4 @@
-[![Build Status](http://ci.sagrid.ac.za:8080/buildStatus/icon?job=zlib-deploy)](http://ci.sagrid.ac.za:8080/job/zlib-deploy/)
+[![Build Status](https://ci.sagrid.ac.za/buildStatus/icon?job=zlib-deploy)](https://ci.sagrid.ac.za/job/zlib-deploy/)
 # zlib-deploy
-A repo to contain the scripts and tests for zlib
+
+A repo to contain the scripts and tests for zlib. 
