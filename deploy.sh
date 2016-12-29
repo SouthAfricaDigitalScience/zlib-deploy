@@ -7,7 +7,6 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 ./configure \
---archs="-arch '${ARCH}'" \
 --prefix=${SOFT_DIR}
 make -j2
 make install
