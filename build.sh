@@ -31,6 +31,6 @@ ls ${WORKSPACE}
 
 cd ${WORKSPACE}/${NAME}-${VERSION}
 ./configure \
---archs="-arch ${ARCH}" \
+--archs="-arch '${ARCH}'" \
 --prefix=${SOFT_DIR}
 make -j2
