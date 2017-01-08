@@ -23,7 +23,7 @@ proc ModulesHelp { } {
 }
 module-whatis   "$NAME $VERSION. See https://gitub.com/SouthAfricaDigitalScience/zlib-deploy"
 setenv       ZLIB_VERSION       $VERSION
-setenv       ZLIB_DIR           $::env(SOFT_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       ZLIB_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
 prepend-path LD_LIBRARY_PATH   $::env(ZLIB_DIR)/lib
 MODULE_FILE
 ) > modules/${VERSION}
