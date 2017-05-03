@@ -1,4 +1,18 @@
 #!/bin/bash -e
+# Copyright 2016 CSIR Meraka Institute
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 # this should be run after check-build finishes.
 . /etc/profile.d/modules.sh
 echo ${SOFT_DIR}
@@ -10,8 +24,8 @@ echo "All tests have passed, will now build into ${SOFT_DIR}"
 --prefix=${SOFT_DIR}
 make -j2
 make install
-echo "Creating the modules file directory ${LIBRARIES_MODULES}"
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
+echo "Creating the modules file directory ${LIBRARIES}"
+mkdir -p ${LIBRARIES}/${NAME}
 (
 cat <<MODULE_FILE
 #%Module1.0
@@ -28,4 +42,4 @@ setenv       ZLIB_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env
 prepend-path LD_LIBRARY_PATH   $::env(ZLIB_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(ZLIB_DIR)/include
 MODULE_FILE
-) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}
+) > ${LIBRARIES}/${NAME}/${VERSION}
