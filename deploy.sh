@@ -43,3 +43,8 @@ prepend-path LD_LIBRARY_PATH   $::env(ZLIB_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(ZLIB_DIR)/include
 MODULE_FILE
 ) > ${LIBRARIES}/${NAME}/${VERSION}
+module avail ${NAME}
+
+# check the modulefile
+
+module add ${NAME}/${VERSION}

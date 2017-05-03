@@ -42,6 +42,10 @@ prepend-path LD_LIBRARY_PATH   $::env(ZLIB_DIR)/lib
 MODULE_FILE
 ) > modules/${VERSION}
 
-mkdir -p ${LIBRARIES}/${NAME}
-cp -v modules/${VERSION} ${MODULES}/${NAME}
-module avail
+mkdir -vp ${LIBRARIES}/${NAME}
+cp -v modules/${VERSION} ${LIBRARIES}/${NAME}
+module avail ${NAME}
+
+# check the modulefile
+
+module add ${NAME}/${VERSION}
