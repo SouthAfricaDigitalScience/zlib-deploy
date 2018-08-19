@@ -16,6 +16,7 @@
 # this should be run after check-build finishes.
 . /etc/profile.d/modules.sh
 echo ${SOFT_DIR}
+mkdir -vp ${SOFT_DIR}
 module add deploy
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
