@@ -20,7 +20,8 @@ module add deploy
 echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
-./configure \
+make distclean
+./configure --static --shared\
 --prefix=${SOFT_DIR}
 make -j2
 make install

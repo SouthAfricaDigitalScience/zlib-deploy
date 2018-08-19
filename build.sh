@@ -15,7 +15,7 @@
 # limitations under the License.
 
 . /etc/profile.d/modules.sh
-SOURCE_FILE=${NAME}-${VERSION}.tar.gz
+SOURCE_FILE=v${VERSION}.tar.gz
 module add ci
 echo ${SOFT_DIR}
 mkdir -p ${SOFT_DIR}
@@ -30,7 +30,7 @@ if [ ! -e ${SRC_DIR}/${SOURCE_FILE}.lock ] && [ ! -s ${SRC_DIR}/${SOURCE_FILE} ]
   touch  ${SRC_DIR}/${SOURCE_FILE}.lock
   echo "Seems the file is not available locally, downloading"
   mkdir -p ${SRC_DIR}
-	wget http://zlib.net/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
+	wget https://github.com/madler/zlib/archive/${SOURCE_FILE} -O ${SRC_DIR}/${SOURCE_FILE}
   echo "releasing lock"
   rm -v ${SRC_DIR}/${SOURCE_FILE}.lock
 elif [ -e ${SRC_DIR}/${SOURCE_FILE}.lock ] ; then
@@ -41,10 +41,10 @@ elif [ -e ${SRC_DIR}/${SOURCE_FILE}.lock ] ; then
   done
 fi
 
-tar xvzf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
+tar xvf ${SRC_DIR}/${SOURCE_FILE} -C ${WORKSPACE} --skip-old-files
 ls ${WORKSPACE}
 
 cd ${WORKSPACE}/${NAME}-${VERSION}
-./configure \
+./configure --static --shared \
 --prefix=${SOFT_DIR}
 make -j2
