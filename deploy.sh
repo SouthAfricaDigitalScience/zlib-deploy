@@ -21,8 +21,7 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 make distclean
-./configure --static --shared\
---prefix=${SOFT_DIR}
+./configure --static --shared --prefix=${SOFT_DIR}
 make -j2
 make install
 echo "Creating the modules file directory ${LIBRARIES}"
